@@ -77,8 +77,6 @@ def getCountry(filter):
             return country
     
     return {"message": filter + " not found"}
-
-
 """Defines API Resources 
   URLs are defined with api.add_resource
 """   
@@ -101,7 +99,6 @@ class CovidAPI:
   This code only runs when this file is played directly
 """        
 if __name__ == "__main__": 
-    
     # This code looks for "world data"
     response = getCovidAPI()
     print("World Totals")
