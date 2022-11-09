@@ -4,10 +4,12 @@ from flask import render_template  # import render_template from "public" flask 
 from __init__ import app  # Definitions initialization
 # Blueprint import api definition
 from covid import covid_api
+from update import update
 from bp_projects.projects import app_projects # Blueprint directory import projects definition
  # register api routes
 app.register_blueprint(app_projects) # register api routes
 app.register_blueprint(covid_api)
+app.register_blueprint(update)
 @app.errorhandler(404)  # catch for URL not found
 def page_not_found(e):
     # note that we set the 404 status explicitly

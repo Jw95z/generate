@@ -3,7 +3,6 @@ from flask import Blueprint, jsonify  # jsonify creates an endpoint response obj
 from flask_restful import Api, Resource # used for REST API building
 import requests  # used for testing 
 import time
-
 # Blueprints enable python code to be organized in multiple files and directories https://flask.palletsprojects.com/en/2.2.x/blueprints/
 covid_api = Blueprint('covid_api', __name__,
                    url_prefix='/api/covid')
@@ -77,6 +76,8 @@ def getCountry(filter):
             return country
     
     return {"message": filter + " not found"}
+
+
 """Defines API Resources 
   URLs are defined with api.add_resource
 """   
@@ -99,6 +100,7 @@ class CovidAPI:
   This code only runs when this file is played directly
 """        
 if __name__ == "__main__": 
+    
     # This code looks for "world data"
     response = getCovidAPI()
     print("World Totals")
