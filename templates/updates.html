@@ -1,0 +1,42 @@
+{% extends "layouts/base.html" %}
+
+<!- This variable sets name of browser tab  -->
+{% set project = "Stubby" %}
+
+<!- This is a replacement block for Body in base.html -->
+{% block body %}
+    
+{% endblock %}
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Js VS Python Clock</title>
+        <link rel = "stylesheet" href ="https://pyscript.net/alpha/pyscript.css"/>
+        <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+        
+    </head>
+
+    <body>
+        <py-env>
+            - paths:
+                - /update.py
+        </py-env>
+        <div >js clock time: <label id="jsClock"></label></div>
+        <div >py clock time: <label id="pyClock"></label></div>
+
+        <py-script src = "/update.py"></py-script>
+        
+    </body>
+    </html>
+
+    <script>
+    setInterval(()=>{
+        var timer = new Date();
+        var h = timer.getHours();
+        var m = timer.getMinutes();
+        var s = timer.getSeconds();
+        document.getElementById('jsClock').innerHTML = `${h} : ${m} : ${s}`;
+    },1000);
+    </script>
+{% block background %}
+{% endblock %}
